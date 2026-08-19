@@ -3,10 +3,7 @@ import { config } from "../config";
 
 const getDisplayYear = (period: string) => {
   if (period.includes("Present")) return "NOW";
-  if (period.includes(" - ")) {
-    return period.split(" - ")[0]; // Show start year for ranges
-  }
-  return period; // Single year like "2021"
+  return period;
 };
 
 const Career = () => {
@@ -14,8 +11,8 @@ const Career = () => {
     <div className="career-section section-container">
       <div className="career-container">
         <h2>
-          My career <span>&</span>
-          <br /> experience
+          My education <span>&</span>
+          <br /> journey
         </h2>
         <div className="career-info">
           <div className="career-timeline">

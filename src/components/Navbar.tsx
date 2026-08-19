@@ -67,14 +67,16 @@ const Navbar = () => {
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          RH
+          MH
         </a>
         <a
-          href="mailto:redoyanul1234@gmail.com"
+          href="https://github.com/Mohammedyouse"
           className="navbar-connect"
+          target="_blank"
+          rel="noopener noreferrer"
           data-cursor="disable"
         >
-          redoyanul1234@gmail.com
+          GitHub
         </a>
         <ul>
           <li>

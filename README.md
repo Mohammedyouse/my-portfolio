@@ -1,12 +1,12 @@
-# 🚀 3D Developer Portfolio Website (React + TypeScript + Three.js)
+# Mohammed Al-Hajj | AI Engineer
 
 [![3D portfolio preview (click to watch video)](./Screenshot_2026-04-08_22-10-00.png)](./screen-capture%20(13).webm)
 
-A modern, high-performance **3D developer portfolio website** built with **React**, **TypeScript**, **Three.js**, **GSAP**, and **WebGL**.
+A modern, high-performance **AI Engineer portfolio website** built with **React**, **TypeScript**, **Three.js**, **GSAP**, and **WebGL**.
 
-If you’re a developer looking for a **portfolio template** that feels premium, interactive, and memorable—this repo is for you.
+This site is Mohammed Al-Hajj's personal portfolio, focused on practical AI engineering and intelligent software products.
 
-> Live preview: https://www.redoyanulhaque.me/
+This portfolio presents Mohammed Al-Hajj's focus on Applied AI, Machine Learning, Data Science, AI Agents, LLM applications, RAG systems, and intelligent software products.
 
 ---
 
@@ -35,7 +35,7 @@ If you’re a developer looking for a **portfolio template** that feels premium,
 ### 1) Clone
 
 ```bash
-git clone https://github.com/red1-for-hek/portfolio-website.git
+git clone https://github.com/Mohammedyouse/my-portfolio.git
 cd portfolio-website
 ```
 
@@ -65,7 +65,7 @@ Typical things you’ll want to update:
 
 - **Your name + hero section text**
 - **Projects list**
-- **Social links** (GitHub, LinkedIn, email)
+- **Social links** (GitHub and LinkedIn)
 - **SEO meta title/description**
 
 ---
@@ -82,7 +82,8 @@ If you found this useful:
 
 ## 🤝 Connect
 
-- LinkedIn: https://www.linkedin.com/in/red1-for-hek/
+- GitHub: https://github.com/Mohammedyouse
+- LinkedIn: https://www.linkedin.com/in/mohammed-al-hajj-a3b912288/
 
 ---
 
