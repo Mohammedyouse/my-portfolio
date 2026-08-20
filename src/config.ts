@@ -1,3 +1,7 @@
+import aiSalesAgentImage from "./assets/projects/e441885b-7cae-4472-a75b-5a4656bc8970.png";
+import carbonEmissionImage from "./assets/projects/1748232698648.png";
+import zengenImage from "./assets/projects/zengen_logo.png";
+
 export const config = {
     developer: {
         name: "Mohammed",
@@ -31,7 +35,7 @@ export const config = {
             title: "AI-Sales-Agent",
             category: "AI Application",
             technologies: "AI, Sales Automation",
-            image: "/images/placeholder.webp",
+            image: aiSalesAgentImage,
             description: "An AI-powered sales agent for assisting customers and automating sales.",
             link: "https://github.com/Mohammedyouse/AI-Sales-Agent"
         },
@@ -40,7 +44,7 @@ export const config = {
             title: "ZenGen",
             category: "AI-Powered Platform",
             technologies: "React, TypeScript, Node.js, Express, PostgreSQL, Google Gemini API",
-            image: "/images/placeholder.webp",
+            image: zengenImage,
             description: "A web-based teen mental health support platform with rule-based assessment, AI-generated summaries, and chatbot support.",
             link: "https://github.com/Mohammedyouse/ZenGen-Prediction_of_mental-health_Platform"
         },
@@ -49,7 +53,7 @@ export const config = {
             title: "Carbon Emission Management System",
             category: "Software Engineering",
             technologies: "Java",
-            image: "/images/placeholder.webp",
+            image: carbonEmissionImage,
             description: "A Java project for managing carbon-emission data and supporting data-driven environmental tracking.",
             link: "https://github.com/Mohammedyouse/carbon-emission-management-system"
         }
