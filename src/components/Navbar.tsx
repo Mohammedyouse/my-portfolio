@@ -10,6 +10,8 @@ export let lenis: Lenis | null = null;
 
 const Navbar = () => {
   useEffect(() => {
+    if (window.innerWidth <= 1024) return;
+
     // Initialize Lenis smooth scroll
     lenis = new Lenis({
       duration: 1.7,
@@ -55,12 +57,15 @@ const Navbar = () => {
     });
 
     // Handle resize
-    window.addEventListener("resize", () => {
+    const handleResize = () => {
       lenis?.resize();
-    });
+    };
+    window.addEventListener("resize", handleResize);
 
     return () => {
+      window.removeEventListener("resize", handleResize);
       lenis?.destroy();
+      lenis = null;
     };
   }, []);
   return (

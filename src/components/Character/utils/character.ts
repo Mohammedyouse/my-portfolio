@@ -3,6 +3,8 @@ import { DRACOLoader, GLTF, GLTFLoader } from "three-stdlib";
 import { setCharTimeline, setAllTimeline } from "../../utils/GsapScroll";
 import { decryptFile } from "./decrypt";
 
+let characterDataPromise: Promise<ArrayBuffer> | null = null;
+
 const setCharacter = (
   renderer: THREE.WebGLRenderer,
   scene: THREE.Scene,
@@ -16,10 +18,11 @@ const setCharacter = (
   const loadCharacter = () => {
     return new Promise<GLTF | null>(async (resolve, reject) => {
       try {
-        const encryptedBlob = await decryptFile(
+        characterDataPromise ??= decryptFile(
           "/models/character.enc",
           "Character3D#@"
         );
+        const encryptedBlob = await characterDataPromise;
         const blobUrl = URL.createObjectURL(new Blob([encryptedBlob]));
 
         let character: THREE.Object3D;
@@ -40,6 +43,7 @@ const setCharacter = (
               }
             });
             resolve(gltf);
+            URL.revokeObjectURL(blobUrl);
             setCharTimeline(character, camera);
             setAllTimeline();
             character!.getObjectByName("footR")!.position.y = 3.36;
@@ -49,6 +53,7 @@ const setCharacter = (
           undefined,
           (error) => {
             console.error("Error loading GLTF model:", error);
+            URL.revokeObjectURL(blobUrl);
             reject(error);
           }
         );

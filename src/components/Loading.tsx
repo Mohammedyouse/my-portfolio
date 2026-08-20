@@ -7,31 +7,25 @@ import Marquee from "react-fast-marquee";
 const Loading = ({ percent }: { percent: number }) => {
   const { setIsLoading } = useLoading();
   const [loaded, setLoaded] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
 
-  if (percent >= 100) {
-    setTimeout(() => {
-      setLoaded(true);
-      setTimeout(() => {
-        setIsLoaded(true);
-      }, 1000);
-    }, 600);
-  }
-
   useEffect(() => {
-    import("./utils/initialFX").then((module) => {
-      if (isLoaded) {
-        setClicked(true);
-        setTimeout(() => {
-          if (module.initialFX) {
-            module.initialFX();
-          }
-          setIsLoading(false);
-        }, 900);
-      }
-    });
-  }, [isLoaded]);
+    if (percent < 100) return;
+
+    const completeTimer = setTimeout(() => setLoaded(true), 600);
+    const closeTimer = setTimeout(() => {
+      setClicked(true);
+      import("./utils/initialFX")
+        .then((module) => module.initialFX?.())
+        .catch((error) => console.error("Initial animation failed:", error))
+        .finally(() => setIsLoading(false));
+    }, 1500);
+
+    return () => {
+      clearTimeout(completeTimer);
+      clearTimeout(closeTimer);
+    };
+  }, [percent, setIsLoading]);
 
   function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
     const { currentTarget: target } = e;

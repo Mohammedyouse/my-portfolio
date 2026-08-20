@@ -77,6 +77,8 @@ export function initialFX() {
   var landingText4 = new TextSplitter(".landing-h2-1", TextProps);
   var landingText5 = new TextSplitter(".landing-h2-2", TextProps);
 
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
   LoopText(landingText2, landingText3);
   LoopText(landingText4, landingText5);
 }

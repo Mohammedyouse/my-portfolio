@@ -1,5 +1,6 @@
 .cta-section {
   width: 100%;
+  box-sizing: border-box;
   padding: 80px 20px;
   background-color: var(--backgroundColor);
   display: flex;

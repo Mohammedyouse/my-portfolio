@@ -29,15 +29,6 @@ const Landing = ({ children }: PropsWithChildren) => {
               <div className="landing-h2-info">Applied AI & Intelligent Systems</div>
             </h2>
           </div>
-          {/* Mobile photo - shows only on mobile when 3D character is hidden */}
-          <div className="mobile-photo">
-            <img
-              src="/images/placeholder.webp"
-              alt="Mohammed Al-Hajj"
-              loading="eager"
-              decoding="async"
-            />
-          </div>
         </div>
         {children}
       </div>

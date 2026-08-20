@@ -1,24 +1,23 @@
-/* Mobile Photo - hidden by default, shown only on mobile */
-.mobile-photo {
-  display: none;
-}
-
-/* Remove mobile photo and ensure 3D character is always hidden on mobile */
 @media only screen and (max-width: 768px) {
-  .character-model {
-    display: none !important;
-  }
-
-  .landing-section,
-  .landing-container {
+  .landing-section {
     height: auto !important;
-    min-height: 100vh;
+    min-height: 100svh;
     max-width: 100vw;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding: 0 15px;
-    padding-bottom: 40px;
+    padding: 0;
+  }
+
+  .landing-container {
+    width: 100%;
+    height: auto !important;
+    min-height: 100svh;
+    max-width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 24px;
   }
 
   /* Fix spacing between name and subtitle */
@@ -29,9 +28,8 @@
     right: auto !important;
     bottom: auto !important;
     transform: none !important;
-    padding-top: 40px;
-    /* Shift higher up */
-    margin-bottom: 20px;
+    padding-top: 32px;
+    margin-bottom: 12px;
     z-index: 10;
     text-align: center;
     width: 100% !important;
@@ -66,12 +64,10 @@
     bottom: auto !important;
     transform: none !important;
     text-align: center;
-    margin-top: 20px;
-    /* Space between name and subtitles */
+    margin-top: 12px;
     z-index: 10;
     background: transparent;
-    padding-bottom: 50px;
-    /* Add bottom padding for scroll space */
+    padding-bottom: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,18 +100,20 @@
     text-align: center;
     height: auto !important;
     transform: none !important;
+    max-width: 100%;
+    overflow-wrap: anywhere;
     /* Remove any transforms */
   }
 
   /* Specific styling for the distinct parts */
   .landing-h2-1 {
-    font-size: 24px !important;
+    font-size: clamp(20px, 7vw, 24px) !important;
     color: var(--accentColor);
     font-weight: 700;
   }
 
   .landing-h2-info {
-    font-size: 18px !important;
+    font-size: clamp(16px, 5.5vw, 18px) !important;
     color: rgba(255, 255, 255, 0.9);
   }
 
@@ -123,29 +121,30 @@
     display: none;
   }
 
-  /* Show mobile photo */
-  .mobile-photo {
-    display: block;
-    position: relative !important;
+  .character-model {
+    display: block !important;
+    position: absolute;
+    top: clamp(140px, 20vh, 180px);
+    bottom: auto;
     width: 100%;
     max-width: 380px;
-    margin: 0 auto;
-    z-index: 1;
-    order: 2;
-    /* Second: Photo */
-    /* Add fade mask to bottom */
-    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    height: clamp(220px, 55vw, 360px);
+    z-index: 2;
     pointer-events: none;
-    transform: none !important;
+    transform: translateX(-50%) !important;
   }
 
-  .mobile-photo img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 40px rgba(194, 164, 255, 0.4));
+  .character-model::before,
+  .character-model::after {
+    display: none;
   }
+
+  .character-model canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
 }
 
 .landing-section {
@@ -239,24 +238,7 @@
   position: relative;
 }
 
-.character-rim {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  z-index: 1;
-  background-color: #f59bf8;
-  transform: translate(-50%, 36%) scaleX(1.4);
-  box-shadow: inset 66px 35px 85px 0px rgba(85, 0, 255, 0.65);
-  filter: blur(50px);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 100%) scale(1.4);
-  opacity: 0;
-}
-
 .character-model {
-  height: 80%;
   height: 80vh;
   position: absolute;
   max-width: 1920px;
@@ -479,6 +461,20 @@ h2.landing-info-h2 {
   }
 }
 
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .character-model {
+    display: block;
+    height: 70vh;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .character-model::before,
+  .character-model::after {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 1025px) {
   .character-model {
     height: 100vh;
@@ -550,5 +546,29 @@ h2.landing-info-h2 {
 
   h2.landing-info-h2 {
     font-size: 75px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .character-model {
+    top: clamp(140px, 20vh, 180px);
+    bottom: auto;
+    height: clamp(220px, 55vw, 360px);
+  }
+
+  .landing-info {
+    margin-top: clamp(240px, 65vw, 300px);
+  }
+
+  /* SplitText adds these wrappers after the initial layout. Let the subtitle reflow. */
+  .landing-info .landing-h2-info,
+  .landing-info .landing-h2-info .split-h2 {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    white-space: normal !important;
+    flex-wrap: wrap;
   }
 }

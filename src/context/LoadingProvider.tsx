@@ -17,9 +17,8 @@ export const LoadingContext = createContext<LoadingType | null>(null);
 
 export const LoadingProvider = ({ children }: PropsWithChildren) => {
   const [isLoading, setIsLoading] = useState(() => {
-    // Skip loading on mobile
-    if (window.innerWidth <= 768) return false;
-    return true;
+    // The 3D character is only mounted on wide desktop screens.
+    return window.innerWidth > 1024;
   });
   const [loading, setLoading] = useState(0);
 
@@ -29,19 +28,26 @@ export const LoadingProvider = ({ children }: PropsWithChildren) => {
     setLoading,
   };
   useEffect(() => {
-    // Auto-start animations on mobile since there's no 3D model
-    if (window.innerWidth <= 768) {
-      import("../components/utils/initialFX").then((module) => {
-        if (module.initialFX) {
-          setTimeout(() => {
-            module.initialFX();
-          }, 100);
-        }
-      });
-    }
-  }, []);
+    const isWideDesktop = window.innerWidth > 1024;
+    let startupTimeout: ReturnType<typeof setTimeout> | undefined;
 
-  useEffect(() => {}, [loading]);
+    if (!isWideDesktop) {
+      import("../components/utils/initialFX").then((module) => {
+        startupTimeout = setTimeout(() => {
+          if (document.querySelector(".landing-section")) {
+            module.initialFX?.();
+          }
+        }, 100);
+      });
+      return () => {
+        if (startupTimeout) clearTimeout(startupTimeout);
+      };
+    }
+
+    // A failed or unexpectedly slow optional 3D asset must not block startup.
+    startupTimeout = setTimeout(() => setLoading(100), 12000);
+    return () => clearTimeout(startupTimeout);
+  }, []);
 
   return (
     <LoadingContext.Provider value={value as LoadingType}>
