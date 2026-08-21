@@ -29,7 +29,7 @@ This portfolio was built to showcase my:
 * Technical skills
 * Projects
 * Learning journey
-* Interest in AI and Data
+* Interest in AI Engineering 
 * Software development work
 
 The website includes interactive UI elements, animations, and a 3D character experience.
