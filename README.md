@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio website.
 
-I'm **Mohammed Al-Hajj**, a Computer Science & Engineering student focused on building my skills in **Artificial Intelligence, Machine Learning, Data Science, and Software Engineering**, with a long-term goal of becoming an **AI Engineer**.
+I'm **Mohammed Al-Hajj**, a Computer Science & Engineering student focused on building my skills in **Artificial Intelligence, Machine Learning, and Software Engineering**, with a long-term goal of becoming an **AI Engineer**.
 
 ## 🌐 Portfolio
 
@@ -29,19 +29,19 @@ This portfolio was built to showcase my:
 * Technical skills
 * Projects
 * Learning journey
-* Interest in AI Engineering 
+* Interest in Artificial Intelligence
 * Software development work
 
 The website includes interactive UI elements, animations, and a 3D character experience.
 
 ## 🎯 Current Focus
 
-I'm currently developing my foundations in:
+I'm currently building my foundations in:
 
-**Data Science → Machine Learning → Applied AI → AI Engineering**
+**Computer Science → AI & Machine Learning → Applied AI → AI Engineering**
 
-I'm continuously learning and building projects to move toward creating practical **AI-powered applications and intelligent systems**.
+I'm continuously learning and building projects toward creating practical **AI-powered applications and intelligent systems**.
 
 ---
 
-**Built by Mohammed Al-Hajj**
+Built by **Mohammed Al-Hajj**
