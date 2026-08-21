@@ -9,9 +9,6 @@ I'm **Mohammed Al-Hajj**, a Computer Science & Engineering student focused on bu
 **Live Website:**
 https://mohammed-alhajj.netlify.app/
 
-**GitHub:**
-https://github.com/Mohammedyouse
-
 **LinkedIn:**
 https://www.linkedin.com/in/mohammed-al-hajj-a3b912288/
 
